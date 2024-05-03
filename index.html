@@ -28,11 +28,11 @@
           <i class="fa-solid fa-cart-shopping"></i>
           <div class="menu-list-container">
             <ul class="menu-list">
-              <li><a href="" class="menu-item">profile</a></li>
-              <li><a href="" class="menu-item">categories</a></li>
-              <li><a href="" class="menu-item">genres</a></li>
-              <li><a href="" class="menu-item">favourites</a></li>
-              <li><a href="" class="menu-item">bookcase</a></li>
+              <li><a href="#profile" class="menu-item">profile</a></li>
+              <li><a href="#categories" class="menu-item">categories</a></li>
+              <li><a href="#genres" class="menu-item">genres</a></li>
+              <li><a href="#favourites" class="menu-item">favourites</a></li>
+              <li><a href="#bookcase" class="menu-item">bookcase</a></li>
             </ul>
           </div>
           <button class="burger">
@@ -58,7 +58,7 @@
       <!-- featured section starts -->
       <section class="featured">
         <h2>based on your preferences</h2>
-        <div class="books-list"></div>
+        <ul class="books-list"></ul>
         <button id="booksListBtn" class="books-list-btn">
           click to see more
         </button>
@@ -74,8 +74,17 @@
       <!-- premieres section ends -->
       <!-- search bar -->
       <div class="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input
+          class="search-box"
+          id="searchbar"
+          onkeyup="bookSearch()"
+          type="text"
+          name="search"
+          placeholder="Search books/authors/genres.."
+        />
       </div>
     </div>
 

@@ -23,7 +23,7 @@ const booksList = document.querySelector(".books-list");
 const loadMoreButton = document.querySelector("#booksListBtn");
 
 const createBook = (data) => {
-  const bookItem = document.createElement("div");
+  const bookItem = document.createElement("li");
   bookItem.classList.add("book-item");
   booksList.appendChild(bookItem);
 
@@ -84,3 +84,18 @@ loadMoreButton.addEventListener("click", () => {
 // id:1
 // publication_year:1960
 // title:"To Kill a Mockingbird"
+
+//no nie dziala
+const bookSearch = () => {
+  let input = document.getElementById("searchbar").value;
+  input = input.toLowerCase();
+  let x = document.getElementsByClassName("book-item");
+
+  for (i = 0; i < x.length; i++) {
+    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+      x[i].style.display = "none";
+    } else {
+      x[i].style.display = "list-item";
+    }
+  }
+};
