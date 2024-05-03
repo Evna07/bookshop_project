@@ -18,8 +18,10 @@ const toggleMenu = () => {
 
 burger.addEventListener("click", toggleMenu);
 
-//uwaga, tutaj dzieje sie magia wyswitlania ksiazek
+//it's some kind of magic~
 const booksList = document.querySelector(".books-list");
+const loadMoreButton = document.querySelector("#booksListBtn");
+
 const createBook = (data) => {
   let bookItem = document.createElement("div");
   bookItem.classList.add("book-item");
@@ -27,7 +29,7 @@ const createBook = (data) => {
 
   let bookCover = document.createElement("img");
   bookItem.appendChild(bookCover);
-  bookCover.src = data.cover_image;
+  bookCover.src = `https://source.unsplash.com/190x285/?book&${Math.random()}`;
 
   let bookTitle = document.createElement("h4");
   bookItem.appendChild(bookTitle);
@@ -42,16 +44,30 @@ const createBook = (data) => {
   bookItem.appendChild(bookPrice);
 };
 
-const limit = 20; // Replace with the desired limit
+const limit = 6; // Replace with the desired limit
+let offset = 0;
 
-fetch(`https://freetestapi.com/api/v1/books?limit=${limit}`)
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((bookData) => {
-      createBook(bookData);
-    });
-  })
-  .catch((error) => console.error("Error:", error));
+// Function to fetch books
+const fetchBooks = () => {
+  fetch(`https://freetestapi.com/api/v1/books?limit=${limit}&offset=${offset}`)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((bookData) => {
+        createBook(bookData);
+      });
+      // Increment offset for next batch
+      offset += limit;
+    })
+    .catch((error) => console.error("Error:", error));
+};
+
+// Load initial books
+fetchBooks();
+
+// Event listener for "click to see more" button
+loadMoreButton.addEventListener("click", () => {
+  fetchBooks();
+});
 
 // author:"Harper Lee"
 // cover_image:"https://fakeimg.pl/667x1000/cc6600"

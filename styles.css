@@ -100,15 +100,38 @@ nav {
     padding: 0 5px;
   }
 
+  .books-list {
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .book-item {
-    gap: 3px;
-    width: 150px;
-    height: 250px;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
   }
 
   .book-item img {
-    height: 175px;
+    height: 305px;
     object-fit: contain;
+  }
+
+  .book-item h4 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .book-item h5,
+  p {
+    font-size: 18px;
   }
 
   .search-bar {
@@ -170,6 +193,39 @@ nav {
     margin: 15px auto;
   }
 
+  .books-list {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .book-item {
+    width: 280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+  }
+
+  .book-item img {
+    height: 305px;
+    object-fit: contain;
+  }
+
+  .book-item h4 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .book-item h5,
+  p {
+    font-size: 18px;
+  }
+
   .premieres {
     width: 960px;
     margin: 15px auto;
@@ -177,25 +233,6 @@ nav {
 
   .search-bar {
     display: none;
-  }
-
-  .book-item {
-    width: 200px;
-    height: 380px;
-    margin: 20px 0;
-  }
-
-  .book-item img {
-    height: 285px;
-    object-fit: contain;
-  }
-
-  .book-item h4 {
-    font-size: 20px;
-  }
-
-  .book-item p {
-    font-size: 20px;
   }
 }
 
@@ -240,29 +277,4 @@ img {
   background-color: blanchedalmond;
   display: flex;
   flex-direction: column;
-}
-
-.books-list {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.books-list::after {
-  content: " ";
-  flex: auto;
-}
-
-.book-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3px;
-}
-
-.book-item h4 {
-  text-align: center;
 }
