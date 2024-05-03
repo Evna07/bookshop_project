@@ -23,25 +23,32 @@ const booksList = document.querySelector(".books-list");
 const loadMoreButton = document.querySelector("#booksListBtn");
 
 const createBook = (data) => {
-  let bookItem = document.createElement("div");
+  const bookItem = document.createElement("div");
   bookItem.classList.add("book-item");
   booksList.appendChild(bookItem);
 
-  let bookCover = document.createElement("img");
+  const bookCover = document.createElement("img");
   bookItem.appendChild(bookCover);
   bookCover.src = `https://source.unsplash.com/190x285/?book&${Math.random()}`;
 
-  let bookTitle = document.createElement("h4");
+  const bookTitle = document.createElement("h4");
   bookItem.appendChild(bookTitle);
   bookTitle.textContent = data.title;
 
-  let bookAuthor = document.createElement("h5");
+  const bookAuthor = document.createElement("h5");
   bookAuthor.textContent = data.author;
   bookItem.appendChild(bookAuthor);
 
-  let bookPrice = document.createElement("p");
+  const bookPrice = document.createElement("p");
   bookPrice.textContent = `${(Math.random() * 10).toFixed(2)} EUR`;
   bookItem.appendChild(bookPrice);
+
+  const favBtn = document.createElement("button");
+  bookItem.appendChild(favBtn);
+  const favIcon = document.createElement("i");
+  favIcon.className = "fa-solid fa-heart";
+  favBtn.appendChild(favIcon);
+  favBtn.classList.add("fav-btn");
 };
 
 const limit = 6; // Replace with the desired limit
@@ -60,6 +67,7 @@ const fetchBooks = () => {
     })
     .catch((error) => console.error("Error:", error));
 };
+//dodac loader
 
 // Load initial books
 fetchBooks();
