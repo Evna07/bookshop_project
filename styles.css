@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #023047;
+}
+
+i {
+  font-size: 30px;
+}
+
+nav {
+  height: 80px;
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(251, 133, 0, 0.4);
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.name-container,
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* responsywnosc navbaru dla mobilnych*/
+@media screen and (max-width: 1023px) {
+  .page-container {
+    width: 100%;
+  }
+
+  nav {
+    height: 80px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .burger {
+    z-index: 100;
+    padding: 4px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .burger .close-icon {
+    display: none;
+  }
+
+  .menu-list-container {
+    position: fixed;
+    transform: translateX(100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: white;
+    color: white;
+    padding-top: 4rem;
+  }
+
+  .menu-list {
+    list-style: none;
+    padding: 15px 0;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 50px;
+  }
+
+  .show-menu-list {
+    transform: translateX(0);
+  }
+
+  .menu-item {
+    font-size: 25px;
+    text-decoration: none;
+    padding: 15px;
+  }
+
+  .carousel {
+    height: 35vh;
+
+    padding: 0 5px;
+  }
+
+  img {
+    height: 175px;
+    width: 305px;
+    object-fit: contain;
+  }
+
+  .search-bar {
+    background-color: azure;
+    position: fixed;
+    bottom: 0;
+    z-index: 98;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+  }
+}
+
+/* responsywnosc navbaru dla desktopu */
+@media screen and (min-width: 1024px) {
+  .page-container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  nav {
+    height: 80px;
+    width: 100%;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .menu-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .menu-item:hover {
+    background-color: #fb8500;
+  }
+
+  .menu-item {
+    font-size: 25px;
+    text-decoration: none;
+  }
+
+  .carousel {
+    height: 250px;
+    width: 100%;
+  }
+
+  img {
+    height: 175px;
+    width: 305px;
+    object-fit: contain;
+  }
+
+  .search-bar {
+    display: none;
+  }
+}
+
+/* ogolne wartosci */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  background-color: antiquewhite;
+}
+
+.carousel-pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 25px;
+}
+
+.featured {
+  background-color: aliceblue;
+}
+
+.premieres {
+  background-color: blanchedalmond;
+}
