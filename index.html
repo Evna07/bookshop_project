@@ -13,52 +13,44 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
+    <nav>
+      <div class="name-container">
+        <a href="#home"
+          ><img src="/images/logo.png" alt="logo" class="logo" />
+        </a>
+        <h1>booky shoppe</h1>
+      </div>
+      <div class="menu-container">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="menu-list-container">
+          <ul class="menu-list">
+            <li><a href="#profile" class="menu-item">profile</a></li>
+            <li><a href="#categories" class="menu-item">categories</a></li>
+            <li><a href="#genres" class="menu-item">genres</a></li>
+            <li><a href="#favourites" class="menu-item">favourites</a></li>
+            <li><a href="#bookcase" class="menu-item">bookcase</a></li>
+          </ul>
+        </div>
+        <button class="burger">
+          <i class="menu-icon fa-solid fa-bars"></i>
+          <i class="close-icon fa-solid fa-x"></i>
+        </button>
+      </div>
+    </nav>
     <div class="page-container">
-      <nav>
-        <div class="name-container">
-          <a href="#"
-            ><img src="/images/logo.png" alt="logo" class="logo" />
-          </a>
-          <h1>booky shoppe</h1>
-        </div>
-        <div class="menu-container">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <div class="menu-list-container">
-            <ul class="menu-list">
-              <li><a href="#profile" class="menu-item">profile</a></li>
-              <li><a href="#categories" class="menu-item">categories</a></li>
-              <li><a href="#genres" class="menu-item">genres</a></li>
-              <li><a href="#favourites" class="menu-item">favourites</a></li>
-              <li><a href="#bookcase" class="menu-item">bookcase</a></li>
-            </ul>
-          </div>
-          <button class="burger">
-            <i class="menu-icon fa-solid fa-bars"></i>
-            <i class="close-icon fa-solid fa-x"></i>
-          </button>
-        </div>
-      </nav>
-      <!-- carousel section starts -->
-      <section class="carousel border">
-        <button class="carousel-btn"><<</button>
-        <div class="carousel-pictures">
-          <img src="https://source.unsplash.com/462x175/?book&3" alt="" />
-          <img src="https://source.unsplash.com/462x175/?book&1" alt="" />
-          <img src="https://source.unsplash.com/462x175/?book&6" alt="" />
-          <img src="https://source.unsplash.com/462x175/?book&12" alt="" />
-          <img src="https://source.unsplash.com/462x175/?book&32" alt="" />
-          <img src="https://source.unsplash.com/462x175/?book&666" alt="" />
-        </div>
-        <button class="carousel-btn">>></button>
-      </section>
-      <!-- carousel section ends -->
       <!-- featured section starts -->
       <section class="featured">
         <h2>based on your preferences</h2>
-        <ul class="books-list"></ul>
+        <ul class="books-list" id="booksList"></ul>
         <button id="booksListBtn" class="books-list-btn">
           click to see more
         </button>
@@ -67,9 +59,7 @@
       <!-- premieres section starts -->
       <section class="premieres">
         <h2>premieres</h2>
-        <div class="books-list">
-          <div class="book-item"></div>
-        </div>
+        <div class="books-list"></div>
       </section>
       <!-- premieres section ends -->
       <!-- search bar -->

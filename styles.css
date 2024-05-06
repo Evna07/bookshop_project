@@ -30,7 +30,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(251, 133, 0, 0.4);
+  background-color: rgb(251, 133, 0);
+  z-index: 10;
 }
 
 .logo {
@@ -50,9 +51,12 @@ nav {
 @media screen and (max-width: 1023px) {
   .page-container {
     width: 100%;
+    margin-top: 50px;
   }
 
   nav {
+    position: fixed;
+    top: 0;
     height: 80px;
     width: 100%;
     padding: 0 10px;
@@ -104,13 +108,7 @@ nav {
     padding: 15px;
   }
 
-  .carousel {
-    height: 35vh;
-    padding: 0 5px;
-  }
-
   .books-list {
-    margin: 25px 0;
     display: flex;
     gap: 35px;
     flex-direction: column;
@@ -187,11 +185,12 @@ nav {
 @media screen and (min-width: 1024px) {
   .page-container {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 70px auto 0 auto;
   }
 
   nav {
+    position: fixed;
+    top: 0;
     height: 80px;
     width: 100%;
     padding: 0 10px;
@@ -219,12 +218,6 @@ nav {
     font-size: 18px;
     text-decoration: none;
     transition: 0.4s ease;
-  }
-
-  .carousel {
-    height: 250px;
-    width: 960px;
-    margin: 15px auto;
   }
 
   .featured {
@@ -325,7 +318,7 @@ nav {
   }
 
   .search-box {
-    width: 250px;
+    width: 450px;
     height: 30px;
     border: none;
     padding: 0 5px;
@@ -333,34 +326,6 @@ nav {
 }
 
 /* ogolne wartosci */
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5px;
-}
-
-.carousel-btn {
-  border-radius: 5px;
-  height: 80px;
-  border: none;
-  background-color: #023047;
-  color: white;
-  padding: 2px;
-}
-
-.carousel-pictures {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  gap: 25px;
-}
-
-img {
-  height: 175px;
-  object-fit: contain;
-}
 
 .featured {
   background-color: #ffb703;

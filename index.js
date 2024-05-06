@@ -1,3 +1,5 @@
+import { booksListed } from "./books.js";
+
 const menuList = document.querySelector(".menu-list-container");
 const menuItems = document.querySelectorAll(".menu-item");
 const burger = document.querySelector(".burger");
@@ -29,7 +31,7 @@ const createBook = (data) => {
 
   const bookCover = document.createElement("img");
   bookItem.appendChild(bookCover);
-  bookCover.src = `https://source.unsplash.com/190x285/?book&${Math.random()}`;
+  bookCover.src = data.cover_image;
 
   const bookTitle = document.createElement("h4");
   bookItem.appendChild(bookTitle);
@@ -51,51 +53,56 @@ const createBook = (data) => {
   favBtn.classList.add("fav-btn");
 };
 
-const limit = 6; // Replace with the desired limit
-let offset = 0;
+let currentOffset = 0;
+const booksPerPage = 6;
 
-// Function to fetch books
 const fetchBooks = () => {
-  fetch(`https://freetestapi.com/api/v1/books?limit=${limit}&offset=${offset}`)
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((bookData) => {
-        createBook(bookData);
-      });
-      // Increment offset for next batch
-      offset += limit;
-    })
-    .catch((error) => console.error("Error:", error));
-};
-//dodac loader
+  const books = booksListed.flat();
+  const endOffset = currentOffset + booksPerPage;
 
-// Load initial books
-fetchBooks();
+  for (let i = currentOffset; i < endOffset && i < books.length; i++) {
+    createBook(books[i]);
+  }
+
+  currentOffset += booksPerPage;
+
+  // Optionally disable the button if there are no more books to load
+  if (currentOffset >= books.length) {
+    loadMoreButton.disabled = true;
+    loadMoreButton.classList.add("disabled");
+  }
+};
+
+document.addEventListener("DOMContentLoaded", fetchBooks);
 
 // Event listener for "click to see more" button
 loadMoreButton.addEventListener("click", () => {
   fetchBooks();
 });
 
-// author:"Harper Lee"
-// cover_image:"https://fakeimg.pl/667x1000/cc6600"
-// description:"A classic novel depicting racial injustice in the American South."
-// genre:['Fiction', 'Classic']
-// id:1
-// publication_year:1960
-// title:"To Kill a Mockingbird"
 
 //no nie dziala
 const bookSearch = () => {
-  let input = document.getElementById("searchbar").value;
-  input = input.toLowerCase();
-  let x = document.getElementsByClassName("book-item");
+  const searchInput = document.getElementById("searchbar").value.toLowerCase();
+  const books = document.querySelectorAll(".book-item");
 
-  for (i = 0; i < x.length; i++) {
-    if (!x[i].innerHTML.toLowerCase().includes(input)) {
-      x[i].style.display = "none";
+  console.log(searchInput, books);
+
+  books.forEach((book) => {
+    const title = book.querySelector("h4").textContent.toLowerCase();
+    const author = book.querySelector("h5").textContent.toLowerCase();
+
+    if (title.includes(searchInput) || author.includes(searchInput)) {
+      book.style.display = "block";
     } else {
-      x[i].style.display = "list-item";
+      book.style.display = "none";
     }
-  }
+  });
 };
+
+// Event listener for keyup event delegated to the document
+document.addEventListener("keyup", (event) => {
+  if (event.target.matches("#searchbar")) {
+    bookSearch();
+  }
+});
