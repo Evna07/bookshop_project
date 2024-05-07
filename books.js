@@ -9,6 +9,7 @@ export const booksListed = [
       description:
         "A classic novel depicting racial injustice in the American South.",
       cover_image: "./books covers/book1.jpg",
+      price: (Math.random() * 10).toFixed(2),
     },
     {
       id: 2,
