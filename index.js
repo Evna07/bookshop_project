@@ -37,7 +37,7 @@ const loader = () => {
 };
 
 const fadeOut = () => {
-  setTimeout(loader, 500);
+  setTimeout(loader, 0);
 };
 
 var swiper = new Swiper(".books-slider", {
