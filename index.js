@@ -78,3 +78,27 @@ var swiper = new Swiper(".featured-slider", {
     },
   },
 });
+
+var swiper = new Swiper(".arrivals-slider", {
+  spaceBetween: 10,
+  loop: true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 5500,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+
+    768: {
+      slidesPerView: 3,
+    },
+
+    1024: {
+      slidesPerView: 4,
+    },
+  },
+});
