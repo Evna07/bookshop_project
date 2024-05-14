@@ -28,6 +28,16 @@ window.onload = () => {
   } else {
     document.querySelector(".header .header-2").classList.remove("active");
   }
+
+  fadeOut();
+};
+
+const loader = () => {
+  document.querySelector(".loader-container").classList.add("active");
+};
+
+const fadeOut = () => {
+  setTimeout(loader, 500);
 };
 
 var swiper = new Swiper(".books-slider", {
