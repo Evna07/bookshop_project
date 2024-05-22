@@ -7,6 +7,13 @@ document.querySelector("#search-btn").onclick = () => {
 const loginForm = document.querySelector(".login-form-container");
 document.querySelector("#login-btn").onclick = () => {
   loginForm.classList.toggle("active");
+  const loginBtn = document.querySelector("#login-container-btn");
+  loginBtn.addEventListener("click", () => {
+    loginForm.classList.remove("active");
+    window.location.href =
+      "https://bookyshoppe.netlify.app/profile_page/profile.html";
+    console.log(window.location.href);
+  });
 };
 
 document.querySelector("#close-login-btn").onclick = () => {
